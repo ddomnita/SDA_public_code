@@ -7,7 +7,7 @@
 #include <string.h>
 #include <stdbool.h>
 
-typedef struct _QUEUE {
+typedef struct QUEUE_STR {
     QUEUE_ENTRY *head;
     QUEUE_ENTRY *tail;
     unsigned int size;
@@ -46,6 +46,7 @@ void enqueue(QUEUE *queue, QUEUE_ENTRY *entry) {
     if (queue == NULL || entry == NULL) {
         return;
     }
+    entry->next = NULL;
 
     if (queue->tail == NULL) {
         queue->head = queue->tail = entry;
@@ -71,6 +72,7 @@ QUEUE_ENTRY *dequeue(QUEUE *queue) {
         }
 
         queue->head = entry->next;
+        entry->next = NULL;
 
         if (queue->tail == entry) {
             queue->tail = NULL;
@@ -81,4 +83,6 @@ QUEUE_ENTRY *dequeue(QUEUE *queue) {
 
     return entry;
 }
+
+
 

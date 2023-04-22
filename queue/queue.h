@@ -2,19 +2,19 @@
 // Created by Dan Domnita on 14.03.2023.
 //
 
-#ifndef __QUEUE_H__
-#define __QUEUE_H__
+#ifndef SDA_QUEUE_H__
+#define SDA_QUEUE_H__
 
 #ifndef CONTAINING_RECORD
 #define CONTAINING_RECORD(address, type, field) (\
-    (type *)((char*)(address) -(unsigned long)(&((type *)0)->field)))
+    (type *)((char*)(address) -(size_t)(&((type *)0)->field)))
 #endif
 
-typedef struct _QUEUE_ENTRY {
-    struct _QUEUE_ENTRY *next;
+typedef struct QUEUE_ENTRY_STR {
+    struct QUEUE_ENTRY_STR *next;
 }QUEUE_ENTRY;
 
-typedef struct _QUEUE QUEUE;
+typedef struct QUEUE_STR QUEUE;
 
 /// Create a structure of type queue
 /// @return A pointer to a structure of type QUEUE. NULL will be return in case of error.
@@ -39,4 +39,4 @@ void enqueue(QUEUE *queue, QUEUE_ENTRY *entry);
 /// @return The element removed from the queue.
 QUEUE_ENTRY *dequeue(QUEUE *queue);
 
-#endif //__QUEUE_H__
+#endif //SDA_QUEUE_H__

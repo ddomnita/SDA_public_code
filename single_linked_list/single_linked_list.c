@@ -6,10 +6,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#include <limits.h>
 
 
-typedef struct _SL_LIST{
+typedef struct SL_LIST_STR{
     SLL_ENTRY *first;
     SLL_ENTRY *last;
     int size;
@@ -116,6 +115,7 @@ void sll_insert_last(SL_LIST *list, SLL_ENTRY *entry) {
     if (list == NULL) {
         return;
     }
+    entry->next = NULL;
 
     if (list->last == NULL) {
         list->first = list->last = entry;

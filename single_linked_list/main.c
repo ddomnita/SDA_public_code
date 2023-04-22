@@ -45,14 +45,14 @@ int main() {
 
     list = sll_create_list();
 
-    for(int i = 9; i >= 0; i--) {
+    for(int i = 3; i >= 0; i--) {
         point = create_point(i, i);
         sll_insert_first(list, &point->entry);
     }
 
     print_list(list);
 
-    for(int i = 0; i < 10; i++) {
+    for(int i = 0; i < 4; i++) {
         point = create_point(i, i);
         sll_insert_last(list, &point->entry);
     }
@@ -76,8 +76,8 @@ int main() {
 
     print_list(list);
 
-    tmp1 = create_point(11, 11);
-    tmp2 = create_point(10, 10);
+    tmp1 = create_point(5, 5);
+    tmp2 = create_point(4, 4);
 
     entry = sll_get_last(list);
 
@@ -95,7 +95,7 @@ int main() {
 
 
 
-    for(int i = 0; i < 10; i++) {
+    for(int i = 0; i < 4; i++) {
         entry = sll_remove_last(list);
 
         if (entry != NULL) {
@@ -107,7 +107,7 @@ int main() {
 
     print_list(list);
 
-    for(int i = 9; i >= 0; i--) {
+    for(int i = 3; i >= 0; i--) {
         entry = sll_remove_first(list);
 
         if (entry != NULL) {

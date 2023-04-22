@@ -2,8 +2,8 @@
 // Created by Dan Domnita on 12.03.2023.
 //
 
-#ifndef __SINGLE_LINKED_LIST_H__
-#define __SINGLE_LINKED_LIST_H__
+#ifndef SDA_SINGLE_LINKED_LIST_H__
+#define SDA_SINGLE_LINKED_LIST_H__
 
 #include <stdbool.h>
 
@@ -12,11 +12,11 @@
     (type *)((char*)(address) -(size_t)(&((type *)0)->field)))
 #endif
 
-typedef struct _SLL_ENTRY{
-    struct _SLL_ENTRY *next;
+typedef struct SLL_ENTRY_STR{
+    struct SLL_ENTRY_STR *next;
 }SLL_ENTRY;
 
-typedef struct _SL_LIST SL_LIST;
+typedef struct SL_LIST_STR SL_LIST;
 
 ///Creates a new single linked list
 ///@return On success the address of a new list is returned. On error NULL is returned.
@@ -26,15 +26,15 @@ SL_LIST *sll_create_list();
 ///@pre The elements in the list have to be removed first.
 void sll_destroy_list(SL_LIST **list);
 
-///Retrives the address of the first element
+///Retrieves the address of the first element
 ///@return On success, the address of the first element. On error, NULL.
 SLL_ENTRY *sll_get_first(const SL_LIST *list);
 
-///Retrives the address of the last element
+///Retrieves the address of the last element
 ///@return On success, the address of the last element. On error, NULL.
 SLL_ENTRY *sll_get_last(const SL_LIST *list);
 
-///Retrives the size of the list
+///Retrieves the size of the list
 ///@return On success, a number greater or equal to 0. On error, -1.
 int sll_get_size(const SL_LIST *list);
 
@@ -83,4 +83,4 @@ SLL_ENTRY *sll_remove_last(SL_LIST *list);
 ///@return On success the address of the removed entry is returned. On error, NULL.
 SLL_ENTRY *sll_remove_element(SL_LIST *list, SLL_ENTRY *entry);
 
-#endif //__SINGLE_LINKED_LIST_H__
+#endif //SDA_SINGLE_LINKED_LIST_H__

@@ -21,6 +21,7 @@ typedef struct QUEUE_STR QUEUE;
 QUEUE *create_queue();
 
 /// It will free the structure created by create_queue function.
+/// @pre The queue has to be empty before the functions call.
 /// @param queue A double pointer to a structure of type QUEUE. After the call it is guaranteed that the pointer will be NULL.
 void delete_queue(QUEUE **queue);
 

@@ -14,7 +14,7 @@ void enqueue_int(QUEUE *queue, int val);
 
 /// Removes an int from the queue.
 /// @param queue The queue from which to remove the element.
-/// @return The element removed from the queue.
+/// @return The element removed from the queue. If the queue is NULL or empty, INT_MIN is returned.
 int dequeue_int(QUEUE *queue);
 
 #endif //QUEUE_INT_QUEUE_H
